@@ -6,6 +6,7 @@ import Dashboard from "../../components/Dashboard/Dashboard/Dashboard";
 import ProjectDetails from "../../components/Projects/ProjectDetails/ProjectDetails";
 import SignIn from "../../components/Auth/SignIn/SignIn";
 import SignUp from "../../components/Auth/SignUp/SignUp";
+import CreateProject from "../../components/Projects/CreateProject/CreateProject";
 
 function App() {
     return (
@@ -17,6 +18,7 @@ function App() {
                     <Route path={'/project/:id'} component={ProjectDetails}/>
                     <Route path={'/signin'} component={SignIn}/>
                     <Route path={'/signup'} component={SignUp}/>
+                    <Route path={'/create'} component={CreateProject}/>
                 </Switch>
             </div>
         </BrowserRouter>
