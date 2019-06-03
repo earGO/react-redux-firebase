@@ -10,9 +10,9 @@ const mapStateToProps = (state) =>{
     }
 };
 
+
 class Dashboard extends React.Component {
     render(){
-        console.log(this.props.projects)
         const { projects } = this.props;
         return (
             <div className={'dashboard container'}>
