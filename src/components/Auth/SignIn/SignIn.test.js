@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import SignedIn from "./SignedIn";
+import SignIn from "./SignIn";
 
 it('renders without crashing', () => {
     const div = document.createElement('div');
-    ReactDOM.render(<SignedIn />, div);
+    ReactDOM.render(<SignIn />, div);
     ReactDOM.unmountComponentAtNode(div);
 });
