@@ -1,10 +1,12 @@
 import React from 'react';
+import {NavLink} from "react-router-dom";
 
 const SignedOutLinks = () => {
     return (
-        <div>
-            <p>This is a SignedOutLinks dumb React Component</p>
-        </div>
+        <ul className="right">
+            <li><NavLink to={'/'} className={''}>Signup</NavLink></li>
+            <li><NavLink to={'/'} className={''}>Log In</NavLink></li>
+        </ul>
 
     )
 };
