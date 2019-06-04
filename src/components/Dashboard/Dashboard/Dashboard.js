@@ -7,7 +7,6 @@ import { compose } from "redux";
 
 
 const mapStateToProps = (state) =>{
-    console.log(state)
     return{
         projects: state.firestore.ordered.projects
     }
@@ -32,7 +31,7 @@ class Dashboard extends React.Component {
         )
     }
 
-};
+}
 
 export default compose(
     connect(mapStateToProps),
