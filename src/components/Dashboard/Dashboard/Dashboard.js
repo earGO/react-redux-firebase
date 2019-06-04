@@ -9,7 +9,7 @@ import { compose } from "redux";
 const mapStateToProps = (state) =>{
     console.log(state)
     return{
-        projects: state.project.projects
+        projects: state.firestore.ordered.projects
     }
 };
 
