@@ -14,8 +14,12 @@ import {logger} from "redux-logger/src";
 const store = createStore(rootReducer,
     compose(
         applyMiddleware(thunk.withExtraArgument({getFirebase, getFirestore}),logger),
-        reactReduxFirebase(fbConfig,{attachAuthIsReady:true}), // redux binding for firebase , and we add await for firebaseAuth
-        reduxFirestore(fbConfig) // redux bindings for firestore
+        reduxFirestore(fbConfig), // redux bindings for firestore
+        reactReduxFirebase(fbConfig,{
+            userProfile:'users',
+            useFirestoreForProfile: true,
+            attachAuthIsReady:true}), // redux binding for firebase , and we add await for firebaseAuth
+
     )
 );
 

@@ -13,7 +13,8 @@ const initialState = {
 
 const mapStateToProps = (state) => {
     return {
-        auth:state.firebase.auth
+        auth:state.firebase.auth,
+        autError:state.auth.authError
     }
 };
 
@@ -41,7 +42,7 @@ class SignUp extends React.Component {
     };
 
     render() {
-        const { auth } = this.props;
+        const { auth,authError } = this.props;
         if(auth.uid) return <Redirect to={'/'}/>
         return (
             <div className={'container'}>
@@ -65,6 +66,9 @@ class SignUp extends React.Component {
                     </div>
                     <div className="input-field">
                         <button className="btn pink lighten-1 z-depth-0" type={'submit'}>Sign up</button>
+                        <div className="red-text center">
+                            {authError ? <p>{authError}</p> : null}
+                        </div>
                     </div>
                 </form>
             </div>

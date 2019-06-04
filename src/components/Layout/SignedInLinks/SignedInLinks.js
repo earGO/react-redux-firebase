@@ -10,13 +10,13 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 const SignedInLinks = (props) => {
-    const { signOut } = props;
+    const { signOut,profile } = props;
 
     return (
         <ul className="right">
             <li><NavLink to={'/create'} className={''}>New Project</NavLink></li>
             <li><a onClick={signOut} className={''}>Log Out</a></li>
-            <li><NavLink to={'/'} className={'btn btn-floating pink lighten-1'}>NN</NavLink></li>
+            <li><NavLink to={'/'} className={'btn btn-floating pink lighten-1'}>{profile.initials}</NavLink></li>
         </ul>
     )
 };
