@@ -14,9 +14,16 @@ import {logger} from "redux-logger/src";
 const store = createStore(rootReducer,
     compose(
         applyMiddleware(thunk.withExtraArgument({getFirebase, getFirestore}),logger),
-        reactReduxFirebase(fbConfig), // redux binding for firebase
+        reactReduxFirebase(fbConfig,{attachAuthIsReady:true}), // redux binding for firebase , and we add await for firebaseAuth
         reduxFirestore(fbConfig) // redux bindings for firestore
     )
 );
 
-ReactDOM.render(<Provider store={store}><App /></Provider>, document.getElementById('root'));
+//we then render our app only when the attachAuthIsReady-promise will be fullfilled.
+store.firebaseAuthIsReady.then(()=>{
+    ReactDOM.render(<Provider store={store}><App /></Provider>, document.getElementById('root'));
+})
+    .catch(err=>{
+        ReactDOM.render(<div>Error with Firebase Auth</div>, document.getElementById('root'));
+    });
+
